@@ -1,7 +1,6 @@
 /**
  * Created by kaka on 15/07/17.
  */
-
 import org.junit.After;
 import org.junit.Assert;
 import static org.junit.Assert.fail;
@@ -16,7 +15,7 @@ import org.openqa.selenium.*;
 
 
 
-public class loginSV {
+public class LoginSVTest {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -32,13 +31,10 @@ public class loginSV {
 
     public void doLogin(String login, String pass) {
 
-        driver.findElement(By.id("inputEmail")).clear();
-        driver.findElement(By.id("inputEmail")).sendKeys(login);
-        driver.findElement(By.id("inputPassword")).clear();
-        driver.findElement(By.id("inputPassword")).sendKeys(pass);
-        driver.findElement(By.id("login")).click();
+       Helper.doLogin(driver, login, pass);
 
     }
+
 
     @Test
     public void validLogin() throws Exception {
@@ -87,6 +83,5 @@ public class loginSV {
             fail(verificationErrorString);
         }
     }
-
 
 }
